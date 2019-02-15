@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">SignalsApp</string>
+    <string name="key">Key Select</string>
+    <string name="chord">Chords</string>
+    <string name="chordI">I</string>
+    <string name="chordII">ii</string>
+    <string name="chordIII">iii</string>
+    <string name="chordIV">IV</string>
+    <string name="chordV">V</string>
+    <string name="chordVI">vi</string>
+    <string name="chordVII">VII°</string>
+    <string name="minorSuffix">m</string>
+    <string name="diminishedSuffix">°</string>
+
+    <string-array name="choices">
+        <item>A♭</item>
+        <item>A</item>
+        <item>B♭</item>
+        <item>B</item>
+        <item>C♭</item>
+        <item>C</item>
+        <item>C#</item>
+        <item>D♭</item>
+        <item>D</item>
+        <item>E♭</item>
+        <item>E</item>
+        <item>F</item>
+        <item>F#</item>
+        <item>G♭</item>
+        <item>G</item>
+    </string-array>
+    <string-array name="sharps">
+        <item>A</item>
+        <item>A#</item>
+        <item>B</item>
+        <item>C</item>
+        <item>C#</item>
+        <item>D</item>
+        <item>D#</item>
+        <item>E</item>
+        <item>F</item>
+        <item>F#</item>
+        <item>G</item>
+        <item>G#</item>
+    </string-array>
+    <string-array name="flats">
+        <item>A</item>
+        <item>B♭</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D♭</item>
+        <item>D</item>
+        <item>E♭</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G♭</item>
+        <item>G</item>
+        <item>A♭</item>
+    </string-array>
+    <string-array name="eSharps">
+        <item>A</item>
+        <item>A#</item>
+        <item>B</item>
+        <item>B#</item>
+        <item>C#</item>
+        <item>D</item>
+        <item>D#</item>
+        <item>E</item>
+        <item>E#</item>
+        <item>F#</item>
+        <item>G</item>
+        <item>G#</item>
+    </string-array>
+    <string-array name="eFlats">
+        <item>A</item>
+        <item>B♭</item>
+        <item>C♭</item>
+        <item>C</item>
+        <item>D♭</item>
+        <item>D</item>
+        <item>E♭</item>
+        <item>F♭</item>
+        <item>F</item>
+        <item>G♭</item>
+        <item>G</item>
+        <item>A♭</item>
+    </string-array>
+</resources>
