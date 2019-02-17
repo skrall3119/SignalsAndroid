@@ -1,17 +1,20 @@
 <resources>
     <string name="app_name">SignalsApp</string>
-    <string name="key">Key Select</string>
+    <string name="key">Key</string>
     <string name="chord">Chords</string>
-    <string name="chordI">I</string>
-    <string name="chordII">ii</string>
-    <string name="chordIII">iii</string>
-    <string name="chordIV">IV</string>
-    <string name="chordV">V</string>
-    <string name="chordVI">vi</string>
-    <string name="chordVII">VII°</string>
     <string name="minorSuffix">m</string>
     <string name="diminishedSuffix">°</string>
+    <string name="generator">Quick Progression</string>
 
+    <string-array name="modes">
+        <item>Ionian(Major)</item>
+        <item>Dorian</item>
+        <item>Phrygian</item>
+        <item>Lydian</item>
+        <item>Mixolydian</item>
+        <item>Aeolian</item>
+        <item>Locrian</item>
+    </string-array>
     <string-array name="choices">
         <item>A♭</item>
         <item>A</item>
@@ -85,4 +88,10 @@
         <item>G</item>
         <item>A♭</item>
     </string-array>
+    <array name="noteTypes">
+        <item>@array/sharps</item>
+        <item>@array/flats</item>
+        <item>@array/eSharps</item>
+        <item>@array/eFlats</item>
+    </array>
 </resources>
