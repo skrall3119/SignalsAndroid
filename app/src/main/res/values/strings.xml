@@ -5,6 +5,8 @@
     <string name="minorSuffix">m</string>
     <string name="diminishedSuffix">°</string>
     <string name="generator">Quick Progression</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
     <string-array name="modes">
         <item>Ionian(Major)</item>
@@ -12,7 +14,7 @@
         <item>Phrygian</item>
         <item>Lydian</item>
         <item>Mixolydian</item>
-        <item>Aeolian</item>
+        <item>Aeolian(Minor</item>
         <item>Locrian</item>
     </string-array>
     <string-array name="choices">

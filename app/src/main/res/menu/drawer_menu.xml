@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_chords"
+            android:icon="@drawable/ic_chords_notes"
+            android:title="Notes and Chords" />
+        <item android:id="@+id/nav_borrowed"
+            android:icon="@drawable/ic_chords_notes"
+            android:title="Borrowed Chords" />
+        <item android:id="@+id/nav_dominance"
+            android:icon="@drawable/ic_chords_notes"
+            android:title="Secondary Dominance" />
+        <item android:id="@+id/nav_tracks"
+            android:icon="@drawable/ic_chords_notes"
+            android:title="Jam Tracks" />
+        <item android:id="@+id/nav_metronome"
+            android:icon="@drawable/ic_chords_notes"
+            android:title="Metronome" />
+
+    </group>
+
+
+
+</menu>
