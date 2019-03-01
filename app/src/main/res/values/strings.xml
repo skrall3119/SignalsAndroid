@@ -90,6 +90,33 @@
         <item>G</item>
         <item>A♭</item>
     </string-array>
+    <string-array name="majorFormula">
+        <item>W</item>
+        <item>W</item>
+        <item>H</item>
+        <item>W</item>
+        <item>W</item>
+        <item>W</item>
+        <item>H</item>
+    </string-array>
+    <string-array name="romanNumerals">
+        <item>i</item>
+        <item>ii</item>
+        <item>iii</item>
+        <item>iv</item>
+        <item>v</item>
+        <item>vi</item>
+        <item>vii</item>
+    </string-array>
+    <string-array name="suffixes">
+        <item></item>
+        <item>m</item>
+        <item>m</item>
+        <item></item>
+        <item></item>
+        <item>m</item>
+        <item>°</item>
+    </string-array>
     <array name="noteTypes">
         <item>@array/sharps</item>
         <item>@array/flats</item>

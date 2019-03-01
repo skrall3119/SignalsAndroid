@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_dominance:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new DominanceFragment()).commit();
+                        new DominantsFragment()).commit();
                 break;
         }
 
