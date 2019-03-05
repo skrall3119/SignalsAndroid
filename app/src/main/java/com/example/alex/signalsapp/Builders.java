@@ -1,14 +1,13 @@
 package com.example.alex.signalsapp;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-public class Builders {
+class Builders {
 
     //finds index of a certain target.
-    public static int find(String[] a, String target) {
+    static int find(String[] a, String target) {
         for (int i = 0; i < a.length; i++)
             if (a[i].equals(target)) {
                 return i;
@@ -17,18 +16,18 @@ public class Builders {
         return -1;
     }
 
-    public static String[] shiftForm(String[] formula, int position) {
+    static String[] shift(String[] array, int position) {
         for (int i = 0; i < position; i++) {
-            String temp = formula[0];
-            for (int j = 0; j < formula.length - 1; j++) {
-                formula[j] = formula[j + 1];
+            String temp = array[0];
+            for (int j = 0; j < array.length - 1; j++) {
+                array[j] = array[j + 1];
             }
-            formula[6] = temp;
+            array[6] = temp;
         }
-        return formula;
+        return array;
     }
 
-    public static void buildScale(String[] notes, String[] formula, String[] scale, int scalePos) {
+    static void buildScale(String[] notes, String[] formula, String[] scale, int scalePos) {
         int newPos;
         for (int i = 1; i < scale.length; i++) {
             if (formula[i - 1].equals("W")) {
@@ -44,8 +43,8 @@ public class Builders {
         }
     }
 
-    public static void updateNotes(View view, String[] scale){
-        TextView tonic = view.findViewById(R.id.tonic);
+    static void updateNotes(View view, String[] scale){
+        TextView tonic = view.findViewById(R.id.base_i);
         tonic.setText(scale[0]);
         TextView superTonic = view.findViewById(R.id.superTonic);
         superTonic.setText(scale[1]);
@@ -60,25 +59,14 @@ public class Builders {
         TextView leadingTone = view.findViewById(R.id.leadingTone);
         leadingTone.setText(scale[6]);
     }
-    public static void updateChords(View view, String[] scale, String[] suffix){
+    static void updateChords(View view, String[] scale, String[] suffix, TextView[] textViews){
         // sets all the chord names on the user interface
-        TextView tonic2 = view.findViewById(R.id.tonic2);
-        tonic2.setText(scale[0] + suffix[0]);
-        TextView superTonic2 = view.findViewById(R.id.superTonic2);
-        superTonic2.setText(scale[1] + suffix[1]);
-        TextView mediant2 = view.findViewById(R.id.mediant2);
-        mediant2.setText(scale[2] + suffix[2]);
-        TextView subDominant2 = view.findViewById(R.id.subDominant2);
-        subDominant2.setText(scale[3] + suffix[3]);
-        TextView dominant2 = view.findViewById(R.id.dominant2);
-        dominant2.setText(scale[4] + suffix[4]);
-        TextView subMediant2 = view.findViewById(R.id.subMediant2);
-        subMediant2.setText(scale[5] + suffix[5]);
-        TextView leadingTone2 = view.findViewById(R.id.leadingTone2);
-        leadingTone2.setText(scale[6] + suffix[6]);
+        for(int i = 0; i < textViews.length; i++){
+            textViews[i].setText(scale[i] + suffix[i]);
+        }
     }
 
-    public static void updateNumerals(View view, String[] numerals){
+    static void updateNumerals(View view, String[] numerals){
         TextView chordi = view.findViewById(R.id.chordi);
         TextView chordii = view.findViewById(R.id.chordii);
         TextView chordiii = view.findViewById(R.id.chordiii);
@@ -98,7 +86,7 @@ public class Builders {
 
     }
 
-    public static String[] chooseNotes(String text, Context context){
+    static String[] chooseNotes(String text, Context context){
         String[] notes;
         switch (text) {
             case "A":
@@ -126,6 +114,24 @@ public class Builders {
 
         }
         return notes;
+    }
+
+    static boolean isInOrder(String[] notes){
+        String temp;
+        boolean isDuplicate = false;
+        for(int i = 0; i < notes.length - 1; i++){
+            if(notes[i].length() == 1){
+                temp = notes[i];
+            }
+            else {
+                temp = notes[i].substring(0, 1);
+            }
+
+            if(temp.equals(notes[i+1].substring(0,1)) && i + 1 < notes.length){
+                isDuplicate = true;
+            }
+        }
+        return isDuplicate;
     }
 
 }

@@ -23,11 +23,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.Random;
-//TODO change chords with mode
-//TODO fix scale notation (modes)
+//TODO fix chord generator
+//TODO implement borrowed chords
+//TODO implement secondary dominants
 //TODO IMPLEMENT SOUNDS
+//TODO fix scale notation (modes)
 //TODO Implement ear trainer
-//TODO Implement finger placement chart
+//TODO Implement chord charts
 //TODO Implement progression builder
 //
 

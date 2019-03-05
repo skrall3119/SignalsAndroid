@@ -31,24 +31,37 @@ public class ChordsFragment extends Fragment {
         final Spinner modeSpinner = view.findViewById(R.id.modes);
         final Spinner spinner = view.findViewById(R.id.keys);
 
+        TextView tonic2 = view.findViewById(R.id.base_i);
+        TextView superTonic2 = view.findViewById(R.id.superTonic2);
+        TextView mediant2 = view.findViewById(R.id.mediant2);
+        TextView subDominant2 = view.findViewById(R.id.subDominant2);
+        TextView dominant2 = view.findViewById(R.id.dominant2);
+        TextView subMediant2 = view.findViewById(R.id.subMediant2);
+        TextView leadingTone2 = view.findViewById(R.id.leadingTone2);
+
+        final TextView[] chords = {tonic2, superTonic2, mediant2, subDominant2, dominant2, subMediant2, leadingTone2};
+
         modeSpinner.setAdapter(adapter1);
         modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String text = spinner.getSelectedItem().toString();
                 String[] majorScaleFormula = getResources().getStringArray(R.array.majorFormula);
-                String[] newScaleFormula = Builders.shiftForm(majorScaleFormula, modeSpinner.getSelectedItemPosition());
-
+                String[] newScaleFormula = Builders.shift(majorScaleFormula, modeSpinner.getSelectedItemPosition());
                 String[] notes = Builders.chooseNotes(text, getContext());
+
                 final String[] scale = new String[7];
                 final String[] suffix = getResources().getStringArray(R.array.suffixes);
                 final String[] numerals = getResources().getStringArray(R.array.romanNumerals);
                 int scalePos = Builders.find(notes, text);
+                int mode = modeSpinner.getSelectedItemPosition();
                 scale[0] = notes[scalePos];
 
+                Builders.shift(suffix, mode);
                 Builders.buildScale(notes, newScaleFormula, scale, scalePos);
+                System.out.println(Builders.isInOrder(scale));
                 Builders.updateNotes(getView(), scale);
-                Builders.updateChords(getView(), scale, suffix);
+                Builders.updateChords(getView(), scale, suffix, chords);
                 Builders.updateNumerals(getView(), numerals);
 
             }
@@ -64,29 +77,28 @@ public class ChordsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String text = spinner.getSelectedItem().toString();
+                int mode = modeSpinner.getSelectedItemPosition();
                 int scalePos;
 
-                //Given notes, how to build any major scale in alphabetical order.
                 String[] majorScaleFormula = getResources().getStringArray(R.array.majorFormula);
-                String[] newScaleFormula = Builders.shiftForm(majorScaleFormula, modeSpinner.getSelectedItemPosition());
+                String[] newScaleFormula = Builders.shift(majorScaleFormula, mode);
 
                 String[] notes = Builders.chooseNotes(text, getContext());
 
                 scalePos = Builders.find(notes, text);
 
 
-                // Creates a new scale based on the formula for creating a major scale.
-                // using the specified notes, it takes the index of the user-selected note and does modular
-                // math to determine the rest of the scale.
                 final String[] scale = new String[7];
                 final String[] suffix = getResources().getStringArray(R.array.suffixes);
                 final String[] numerals = getResources().getStringArray(R.array.romanNumerals);
                 scale[0] = notes[scalePos];
 
+                Builders.shift(suffix, mode);
 
                 Builders.buildScale(notes, newScaleFormula, scale, scalePos);
+                System.out.println(Builders.isInOrder(scale));
                 Builders.updateNotes(getView(), scale);
-                Builders.updateChords(getView(), scale, suffix);
+                Builders.updateChords(getView(), scale, suffix, chords);
                 Builders.updateNumerals(getView(), numerals);
 
 
