@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SignalsApp</string>
-    <string name="key">Key</string>
+    <string name="key">Root</string>
     <string name="chord">Chords</string>
     <string name="minorSuffix">m</string>
     <string name="diminishedSuffix">°</string>
@@ -9,12 +9,20 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
     <string-array name="modes">
-        <item>Ionian(Major)</item>
+        <item>Ionian (Major)</item>
         <item>Dorian</item>
         <item>Phrygian</item>
         <item>Lydian</item>
         <item>Mixolydian</item>
-        <item>Aeolian(Minor</item>
+        <item>Aeolian (Minor)</item>
+        <item>Locrian</item>
+    </string-array>
+    <string-array name="borrowed_mode">
+        <item>Dorian</item>
+        <item>Phrygian</item>
+        <item>Lydian</item>
+        <item>Mixolydian</item>
+        <item>Aeolian (Minor)</item>
         <item>Locrian</item>
     </string-array>
     <string-array name="choices">
@@ -33,62 +41,6 @@
         <item>F#</item>
         <item>G♭</item>
         <item>G</item>
-    </string-array>
-    <string-array name="sharps">
-        <item>A</item>
-        <item>A#</item>
-        <item>B</item>
-        <item>C</item>
-        <item>C#</item>
-        <item>D</item>
-        <item>D#</item>
-        <item>E</item>
-        <item>F</item>
-        <item>F#</item>
-        <item>G</item>
-        <item>G#</item>
-    </string-array>
-    <string-array name="flats">
-        <item>A</item>
-        <item>B♭</item>
-        <item>B</item>
-        <item>C</item>
-        <item>D♭</item>
-        <item>D</item>
-        <item>E♭</item>
-        <item>E</item>
-        <item>F</item>
-        <item>G♭</item>
-        <item>G</item>
-        <item>A♭</item>
-    </string-array>
-    <string-array name="eSharps">
-        <item>A</item>
-        <item>A#</item>
-        <item>B</item>
-        <item>B#</item>
-        <item>C#</item>
-        <item>D</item>
-        <item>D#</item>
-        <item>E</item>
-        <item>E#</item>
-        <item>F#</item>
-        <item>G</item>
-        <item>G#</item>
-    </string-array>
-    <string-array name="eFlats">
-        <item>A</item>
-        <item>B♭</item>
-        <item>C♭</item>
-        <item>C</item>
-        <item>D♭</item>
-        <item>D</item>
-        <item>E♭</item>
-        <item>F♭</item>
-        <item>F</item>
-        <item>G♭</item>
-        <item>G</item>
-        <item>A♭</item>
     </string-array>
     <string-array name="majorFormula">
         <item>W</item>
@@ -117,10 +69,13 @@
         <item>m</item>
         <item>°</item>
     </string-array>
-    <array name="noteTypes">
-        <item>@array/sharps</item>
-        <item>@array/flats</item>
-        <item>@array/eSharps</item>
-        <item>@array/eFlats</item>
-    </array>
+    <string-array name="sevens">
+        <item>7</item>
+        <item>7</item>
+        <item>7</item>
+        <item>7</item>
+        <item>7</item>
+        <item>7</item>
+        <item>7</item>
+    </string-array>
 </resources>

@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class BorrowedFragment extends Fragment {
@@ -17,91 +19,136 @@ public class BorrowedFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_borrowed, container, false);
+        final View view = inflater.inflate(R.layout.fragment_borrowed, container, false);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(view.getContext(), R.array.choices, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(view.getContext(), R.array.modes, android.R.layout.simple_spinner_item);
+        final MyKeyboard keyboard = view.findViewById(R.id.keyboard);
 
-        final Spinner spinner = view.findViewById(R.id.baseChoices);
-        final Spinner modeSpinner = view.findViewById(R.id.borrowedMode);
+        final EditText mainEditText = view.findViewById(R.id.mainEditText);
+        final EditText dialogEditText = view.findViewById(R.id.userInput);
+        final LinearLayout dimLayout = view.findViewById(R.id.dim_layout);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        TextView maj_i = view.findViewById(R.id.majTonic);
+        TextView maj_ii = view.findViewById(R.id.majSuperTonic);
+        TextView maj_iii = view.findViewById(R.id.majMediant);
+        TextView maj_iv = view.findViewById(R.id.majSubDominant);
+        TextView maj_v = view.findViewById(R.id.majDominant);
+        TextView maj_vi = view.findViewById(R.id.majSubtonic);
+        TextView maj_vii = view.findViewById(R.id.majLeadingTone);
 
-        TextView base_i = view.findViewById(R.id.base_i);
-        TextView base_ii = view.findViewById(R.id.base_ii);
-        TextView base_iii = view.findViewById(R.id.base_iii);
-        TextView base_iv = view.findViewById(R.id.base_iv);
-        TextView base_v = view.findViewById(R.id.base_v);
-        TextView base_vi = view.findViewById(R.id.base_vi);
-        TextView base_vii = view.findViewById(R.id.base_vii);
+        TextView dor_i = view.findViewById(R.id.dorTonic);
+        TextView dor_ii = view.findViewById(R.id.dorSuperTonic);
+        TextView dor_iii = view.findViewById(R.id.dorMediant);
+        TextView dor_iv = view.findViewById(R.id.dorSubDominant);
+        TextView dor_v = view.findViewById(R.id.dorDominant);
+        TextView dor_vi = view.findViewById(R.id.dorSubtonic);
+        TextView dor_vii = view.findViewById(R.id.dorLeadingTone);
 
-        TextView borrowed_i = view.findViewById(R.id.borrowed_i);
-        TextView borrowed_ii = view.findViewById(R.id.borrowed_ii);
-        TextView borrowed_iii = view.findViewById(R.id.borrowed_iii);
-        TextView borrowed_iv = view.findViewById(R.id.borrowed_iv);
-        TextView borrowed_v = view.findViewById(R.id.borrowed_v);
-        TextView borrowed_vi = view.findViewById(R.id.borrowed_vi);
-        TextView borrowed_vii = view.findViewById(R.id.borrowed_vii);
+        TextView phr_i = view.findViewById(R.id.phrTonic);
+        TextView phr_ii = view.findViewById(R.id.phrSuperTonic);
+        TextView phr_iii = view.findViewById(R.id.phrMediant);
+        TextView phr_iv = view.findViewById(R.id.phrSubDominant);
+        TextView phr_v = view.findViewById(R.id.phrDominant);
+        TextView phr_vi = view.findViewById(R.id.phrSubtonic);
+        TextView phr_vii = view.findViewById(R.id.phrLeadingTone);
 
-        final TextView chordText[] = {base_i, base_ii, base_iii, base_iv, base_v, base_vi, base_vii};
-        final TextView borrowedChords[] = {borrowed_i, borrowed_ii, borrowed_iii, borrowed_iv, borrowed_v,
-                borrowed_vi, borrowed_vii};
+        TextView lyd_i = view.findViewById(R.id.lydTonic);
+        TextView lyd_ii = view.findViewById(R.id.lydSuperTonic);
+        TextView lyd_iii = view.findViewById(R.id.lydMediant);
+        TextView lyd_iv = view.findViewById(R.id.lydSubDominant);
+        TextView lyd_v = view.findViewById(R.id.lydDominant);
+        TextView lyd_vi = view.findViewById(R.id.lydSubtonic);
+        TextView lyd_vii = view.findViewById(R.id.lydLeadingTone);
 
-        spinner.setAdapter(adapter);
-        modeSpinner.setAdapter(adapter1);
+        TextView mix_i = view.findViewById(R.id.mixTonic);
+        TextView mix_ii = view.findViewById(R.id.mixSuperTonic);
+        TextView mix_iii = view.findViewById(R.id.mixMediant);
+        TextView mix_iv = view.findViewById(R.id.mixSubDominant);
+        TextView mix_v = view.findViewById(R.id.mixDominant);
+        TextView mix_vi = view.findViewById(R.id.mixSubtonic);
+        TextView mix_vii = view.findViewById(R.id.mixLeadingTone);
 
-        spinner.setSelection(5);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        TextView min_i = view.findViewById(R.id.minTonic);
+        TextView min_ii = view.findViewById(R.id.minSuperTonic);
+        TextView min_iii = view.findViewById(R.id.minMediant);
+        TextView min_iv = view.findViewById(R.id.minSubDominant);
+        TextView min_v = view.findViewById(R.id.minDominant);
+        TextView min_vi = view.findViewById(R.id.minSubtonic);
+        TextView min_vii = view.findViewById(R.id.minLeadingTone);
+
+        TextView loc_i = view.findViewById(R.id.locTonic);
+        TextView loc_ii = view.findViewById(R.id.locSuperTonic);
+        TextView loc_iii = view.findViewById(R.id.locMediant);
+        TextView loc_iv = view.findViewById(R.id.locSubDominant);
+        TextView loc_v = view.findViewById(R.id.locDominant);
+        TextView loc_vi = view.findViewById(R.id.locSubtonic);
+        TextView loc_vii = view.findViewById(R.id.locLeadingTone);
+
+        final TextView major[] = {maj_i, maj_ii, maj_iii, maj_iv, maj_v, maj_vi, maj_vii};
+        TextView dorian[] = {dor_i, dor_ii, dor_iii, dor_iv, dor_v, dor_vi, dor_vii};
+        TextView phrygian[] = {phr_i, phr_ii, phr_iii, phr_iv, phr_v, phr_vi, phr_vii};
+        TextView lydian[] = {lyd_i, lyd_ii, lyd_iii, lyd_iv, lyd_v, lyd_vi, lyd_vii};
+        TextView mixolyidan[] = {mix_i, mix_ii, mix_iii, mix_iv, mix_v, mix_vi, mix_vii};
+        TextView minor[] = {min_i, min_ii, min_iii, min_iv, min_v, min_vi, min_vii};
+        TextView locrian[] = {loc_i, loc_ii, loc_iii, loc_iv, loc_v, loc_vi, loc_vii};
+
+        final TextView[] modes[] = {major, dorian, phrygian, lydian, mixolyidan, minor, locrian};
+
+        updateView("C", modes);
+
+        dialogEditText.setInputType(InputType.TYPE_NULL);
+        dialogEditText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+
+        keyboard.setVisibility(View.INVISIBLE);
+
+        InputConnection ic = dialogEditText.onCreateInputConnection(new EditorInfo());
+        keyboard.setInputConnection(ic);
+
+        mainEditText.setFocusable(false);
+
+        mainEditText.setText("C");
+        mainEditText.setInputType(InputType.TYPE_NULL);
+        mainEditText.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                String majorScaleFormula[] = view.getResources().getStringArray(R.array.majorFormula);
-                String text = spinner.getSelectedItem().toString();
-                String[] notes = Builders.chooseNotes(text, getContext());
-                int scalePos = Builders.find(notes, text);
-                final String[] suffix = getResources().getStringArray(R.array.suffixes);
-                final String[] scale = new String[7];
-                scale[0] = notes[scalePos];
-                Builders.buildScale(notes, majorScaleFormula, scale, scalePos);
-                Builders.updateChords(view, scale, suffix, chordText);
-
+            public void onClick(View v) {
+                keyboard.setVisibility(View.VISIBLE);
+                dimLayout.setVisibility(View.VISIBLE);
+                keyboard.bringToFront();
             }
+        });
 
+        keyboard.buttonEnter = keyboard.findViewById(R.id.button_enter);
+        keyboard.buttonEnter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onClick(View v) {
+
+                String note = dialogEditText.getText().toString();
+                if(note.equals("")){
+                    mainEditText.setText("C");
+                    note = "C";
+                }
+
+                updateView(note, modes);
+                mainEditText.setText(note);
+                keyboard.setVisibility(View.INVISIBLE);
+                dimLayout.setVisibility(View.INVISIBLE);
 
             }
         });
 
-        modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                int mode = modeSpinner.getSelectedItemPosition();
-
-                String majorScaleFormula[] = view.getResources().getStringArray(R.array.majorFormula);
-                String newFormula[] = Builders.shift(majorScaleFormula, mode);
-                String text = spinner.getSelectedItem().toString();
-                String[] notes = Builders.chooseNotes(text, getContext());
-
-                int scalePos = Builders.find(notes, text);
-
-                final String[] suffix = getResources().getStringArray(R.array.suffixes);
-                final String[] scale = new String[7];
-                scale[0] = notes[scalePos];
-                Builders.shift(suffix, mode);
-                Builders.buildScale(notes, newFormula, scale, scalePos);
-                Builders.updateChords(view, scale, suffix, borrowedChords);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         return view;
+
+    }
+
+    public void updateView(String note, TextView[] modes[]) {
+        for(int i = 0; i < 7; i++) {
+            final String[] suffixes = getResources().getStringArray(R.array.suffixes);
+            final String[] majorScaleFormula = getResources().getStringArray(R.array.majorFormula);
+
+            String[] formula = Builders.shift(majorScaleFormula, i);
+            String[] suffix = Builders.shift(suffixes, i);
+            String[] scale = Builders.buildScale(note, formula);
+            Builders.updateChords(scale, suffix, modes[i]);
+        }
     }
 }
